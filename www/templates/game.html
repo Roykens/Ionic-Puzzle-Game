@@ -1,0 +1,104 @@
+<ion-view view-title="Gallery">
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in">
+  		<script src="../js/game.js"></script> 
+       <div id="puzzel">
+
+	       	<div ng-repeat=" list in lists" class="item-puzzel" srcs="../img/{{packImg}}/{{packImg}}{{nombre}}/{{list}}.jpg" alt="" id="elt{{list}}" n="{{nombre}}">
+       		   <img  src="../img/{{packImg}}/{{packImg}}{{nombre}}/{{list}}.jpg"  alt="">
+             <span class="indic">{{list}}</span>
+          </div>
+          <div id="anim-move" style="">
+       			<img src="">
+       		</div>
+       </div>
+       
+       <script type="text/javascript">
+	       	$(document).ready(
+	       		function () {
+	       			$("#puzzel  .item-puzzel").show(1000);
+	       			$("#puzzel .item-puzzel").click(
+	       				function(){
+	       					move($(this).attr("id"),$(this).attr("n"));
+	       				}
+	       			);
+              $("#seeView").click(
+                function(){
+                  $(".indic").toggle(750);
+                }
+              );
+	       		}
+	       );
+       </script>
+       <style type="text/css">
+       @media only screen and (max-width: 300px) {
+          #puzzel{
+            max-width: 300px !important;
+          }
+        }
+        @media only screen and (max-width: 700px) {
+          #puzzel{
+            max-width: 500px !important;
+          }
+        }
+        @media only screen and (max-width: 800px) {
+          #puzzel{
+            max-width: 700px !important;
+          }
+        }
+        @media only screen and (max-width: 1000px) {
+          #puzzel{
+            max-width: 1000px !important;
+          }
+        }
+          .indic{
+            font-size: 25px;
+            color: #b71c1c;
+            position: absolute;
+            bottom: 4%;
+            left: 4%;
+            text-shadow: -2px -1px 0px white;
+            display: none;
+          }
+         #elt0{
+                filter: BRIGHTNESS(20%);
+         }
+         #puzzel .item-puzzel img{
+            width: 100%;
+            height: 100%;
+        }
+        #puzzel{
+            width: 96%;
+            height: 96%;
+            margin: 2%;
+            position: relative;
+           border: 2px solid black;
+          }
+       </style>
+       <link  ng-if="nombre==3" href="../css/game3.css" rel="stylesheet">
+       <link  ng-if="nombre==4" href="../css/game4.css" rel="stylesheet">
+       <link  ng-if="nombre==5" href="../css/game5.css" rel="stylesheet">
+       <style type="text/css">
+          <style type="text/css">
+       @media only screen and (max-width: 300px) {
+          #puzzel{
+            max-width: 300px !important;
+          }
+        }
+        @media only screen and (max-width: 700px) {
+          #puzzel{
+            max-width: 500px !important;
+          }
+        }
+        @media only screen and (max-width: 800px) {
+          #puzzel{
+            max-width: 700px !important;
+          }
+        }
+        @media only screen and (max-width: 1000px) {
+          #puzzel{
+            max-width: 1000px !important;
+          }
+        }
+       </style>
+    </ion-content>
+</ion-view>

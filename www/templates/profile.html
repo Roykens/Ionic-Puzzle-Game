@@ -1,0 +1,76 @@
+<ion-view view-title="Acceuil">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div class="hero slide-up" style="background-image: url('img/BG.png');">
+            <div class="content">
+                <div class="avatar" style="background-image: url('img/bob.jpg');"></div>
+                <h3><a class="light">Puzzel Slide</a></h3>
+                <h4>Feav</h4>
+            </div>
+        </div>
+        <div class="tabs tabs-dark tabs-icon-top static" style="background: #f76d4b;">
+            <a ui-sref="app.activity" class="tab-item">
+                <i class="icon ion-play"></i> Jouer
+            </a>
+            <a ui-sref="app.gallery({level:1})" class="tab-item">
+                <i class="icon ion-images"></i> Sauvegardes
+            </a>
+        </div>
+        <!-- <h4 class="content padding double-padding-x">Reccords</h4> -->
+        <ion-slide-box slide-interval="10000" does-continue="true" auto-play="true" on-slide-changed="slideHasChanged($index)">
+
+          <ion-slide>
+            
+            <div class="box blue">
+                    <h2 class="modal-title">Minions</h2>
+                    <img class="full-image" src="img/minimos.jpg">
+            </div>
+          </ion-slide>
+
+          <ion-slide>
+            <div class="box blue">
+                    <h2 class="modal-title">Simpson</h2>
+                    <img class="full-image" src="img/simpson.jpg">
+            </div>
+          </ion-slide>
+          <ion-slide>
+            
+            <div class="box blue">
+                    <h2 class="modal-title">Pokemon</h2>
+                    <img class="full-image" src="img/pokemon.jpg">
+            </div>
+          </ion-slide>
+          <ion-slide>
+            
+            <div class="box blue">
+                    <h2 class="modal-title">Bob l'Eponge</h2>
+                    <img class="full-image" src="img/bobleponge.jpg">
+            </div>
+          </ion-slide>
+
+          <ion-slide>
+            
+            <div class="box blue">
+                    <h2 class="modal-title">Dora l'Exploratrice</h2>
+                    <img class="full-image" src="img/dora_exploratrice.jpg">
+            </div>
+          </ion-slide>
+
+          <ion-slide>
+            
+            <div class="box blue">
+                    <h2 class="modal-title">Spider Man</h2>
+                    <img class="full-image" src="img/spiderman.jpg">
+            </div>
+          </ion-slide>
+
+          <ion-slide>
+            
+            <div class="box blue">
+                    <h2 class="modal-title">Avenger</h2>
+                    <img class="full-image" src="img/avenger.jpg">
+            </div>
+          </ion-slide>
+
+        </ion-slide-box>
+    </ion-content>
+</ion-view>

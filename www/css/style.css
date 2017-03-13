@@ -1,0 +1,156 @@
+/* General
+==================================*/
+h1 {
+    color: #fff;
+    text-shadow: 0 1px 0px #000;
+    font-size: 42px;
+}
+
+
+/* Utilities
+==================================*/
+.title-bordered {
+    border-top: solid 2px #bbb;
+    padding-top: 30px;
+}
+
+p {
+    color: #555;
+    margin: 0 0 25px;
+}
+
+.scroll {
+    height: 100%;
+}
+
+
+/* Menu
+==================================*/
+.menu .bar.bar-header.expanded {
+    transition: all .5s ease-in-out;
+}
+
+.menu-open .bar.bar-header.expanded {
+    background-color: #222;
+}
+
+.menu h2 {
+    bottom: 0;
+    font-size: 18px;
+    left: 16px;
+    position: absolute;
+}
+
+.menu .avatar {
+    height: 88px;
+    width: 88px;
+}
+
+.menu.menu-left * {
+    font-weight: bold;
+}
+
+.menu-open .ion-navicon {
+    transform: rotate(-360deg);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu-open .ion-navicon:before {
+    content: "\f2ca";
+}
+
+
+/* Login
+==================================*/
+.app-icon {
+    background-color: #fff;
+    background: url('../img/crown.jpg') center;
+    background-size: cover;
+    border-radius: 50%;
+    height: 125px;
+    margin: 0 auto;
+    width: 125px;
+}
+
+.social-login {
+    position: fixed;
+    bottom: 0;
+}
+
+.activity img{
+    height: 150px;
+}
+
+/*-------------------------GAME PUZZEL ----------------------------------*/
+table.game-3{
+    width: 96%;
+    height: 96%;
+    margin:2%; 
+}
+table.game-3 td{
+    height: 32%;
+    width: 32%;
+    background: url("../img/simpson.jpg") no-repeat;
+    border: 1px black solid;
+    background-position: left top; 
+}
+table.game-3 td:nth-child(1){
+        background-position-x: -355%;
+}
+table.game-3 td:nth-child(2){
+    background-position-x: 125%;
+}
+table.game-3 td:nth-child(3){
+    background-position: 480% top; 
+}
+.modale{
+    z-index: 500;
+    position: fixed;
+    width: 100%;
+    display: none;
+    height:  100%;
+    background: rgba(183, 47, 47, 0.34);
+
+}
+.modal-content{
+    width: 70%;
+    height: 20%;
+    background: linear-gradient(to bottom,white,wheat);
+    margin-top: 55%;
+    margin-left: 15%;
+    border-radius: 1%;
+    padding: 10px;
+    border: 2px solid white;
+}
+.modal-title{
+    text-align: center;
+    color:  rgba(183, 47, 47, 0.5);
+    font-weight: 600;
+    text-shadow: -2px 1px 0px black;
+}
+.modal-choice{
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+}
+.modal-choice button{
+    display: inline;
+    width: 40%;
+    border: 2px solid white;
+    height: 25%;
+
+}
+.text-button{
+    margin-left: 10%;
+    font-weight: 600;
+    color:  rgba(183, 47, 47, 0.5);
+    text-shadow: -2px 1px 0px black;
+}
+.modal-choice button.yes{
+        background: linear-gradient(to bottom,#90f9c8,#63ad84);
+}
+.modal-choice button.no{
+    background: linear-gradient(to bottom,#f99090,#ad6363);
+}

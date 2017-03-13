@@ -1,0 +1,64 @@
+<ion-view view-title="Gallery">
+    <ion-content ng-class="{expanded:isExpanded}" class="animate-fade-slide-in activity">
+        <div class="list half">
+            <div ui-sref="{{puzzels[0].lien}}" class="card card-gallery item item-text-wrap">
+                <div class="ink dark-bg">
+                    <h2>{{puzzels[0].titre}}</h2>
+                    <img class="full-image" src="{{puzzels[0].src}}">
+                </div>
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item stable-bg assertive">
+                        <i class="icon ion-clock"></i> {{puzzels[0].time}} min
+                    </a>
+                    <a class="tab-item stable-bg positive-900">
+                        <i class="icon ion-ios-checkmark"></i> {{puzzels[0].pts}} pts
+                    </a>
+                </div>
+            </div>
+            <div ui-sref="{{puzzels[1].lien}}" class="card card-gallery item item-text-wrap">
+                <div class="ink dark-bg">
+                    <h2>{{puzzels[1].titre}}</h2>
+                    <img class="full-image" src="{{puzzels[1].src}}">
+                </div>
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item stable-bg assertive">
+                        <i class="icon ion-clock"></i> {{puzzels[1].time}} min
+                    </a>
+                    <a class="tab-item stable-bg positive-900">
+                        <i class="icon ion-ios-checkmark"></i> {{puzzels[1].pts}} pts
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="list half">
+            <div ui-sref="{{puzzels[2].lien}}" class="card card-gallery item item-text-wrap">
+                <div class="ink dark-bg">
+                    <h2>{{puzzels[2].titre}}</h2>
+                    <img class="full-image" src="{{puzzels[2].src}}">
+                </div>
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item stable-bg assertive">
+                        <i class="icon ion-clock"></i> {{puzzels[2].time}} min
+                    </a>
+                    <a class="tab-item stable-bg positive-900">
+                        <i class="icon ion-ios-checkmark"></i> {{puzzels[2].pts}} pts
+                    </a>
+                </div>
+            </div>
+            <div ui-sref="{{puzzels[3].lien}}" class="card card-gallery item item-text-wrap">
+                <div class="ink dark-bg">
+                    <h2>{{puzzels[3].titre}}</h2>
+                    <img class="full-image" src="{{puzzels[3].src}}">
+                </div>
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item stable-bg assertive">
+                        <i class="icon ion-clock"></i> {{puzzels[3].time}} min
+                    </a>
+                    <a class="tab-item stable-bg positive-900">
+                        <i class="icon ion-ios-checkmark"></i> {{puzzels[3].pts}} pts
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
