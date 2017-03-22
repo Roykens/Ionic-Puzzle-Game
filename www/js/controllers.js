@@ -344,4 +344,29 @@ angular.module('starter.controllers', [])
         $scope.lists = list[randomnumber];
     }
 })
+.factory('Application', function ($cordovaNativeStorage,$state) {
+    return {
+      registerName : function(name,){
+        $cordovaNativeStorage.setItem("name", name).then(function () {
+            console.log("YOUUUPIIII login");
+        }, function(error){
+             console.log("ERRRRUUUURRRRRRR login");
+             console.log(error);  
+        });
+        
+      },
+
+      getName : function () {
+        return $cordovaNativeStorage.getItem("name").then(function (value) {
+            console.log("name",value);
+            return value;
+        }, function(error){
+             console.log("ERRRRUUUUR Recup Nom");
+             console.log(error);  
+        });
+      },
+
+      
+    };
+})
 ;

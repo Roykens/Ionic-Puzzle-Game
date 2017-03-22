@@ -3,53 +3,51 @@
 // --------------------------------------------------
 
 @mixin button-style($bg-color, $border-color, $active-bg-color, $active-border-color, $color) {
-  border-color: $border-color;
-  background-color: $bg-color;
   color: $color;
+  background-color: $bg-color;
+  border-color: $border-color;
 
   // Give desktop users something to play with
   &:hover {
     color: $color;
     text-decoration: none;
   }
-  &.active,
-  &.activated {
-    border-color: $active-border-color;
+  &.active {
     background-color: $active-bg-color;
-    box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
+    box-shadow: inset 0px 1px 3px rgba(0,0,0,0.15);
+    border-color: $active-border-color;
   }
 }
 
 @mixin button-clear($color, $font-size:"") {
   &.button-clear {
-    border-color: transparent;
-    background: none;
-    box-shadow: none;
     color: $color;
+    background: none;
+    border-color: transparent;
+    box-shadow: none;
 
     @if $font-size != "" {
       font-size: $font-size;
     }
   }
   &.button-icon {
-    border-color: transparent;
     background: none;
+    border-color: transparent;
   }
 }
 
 @mixin button-outline($color, $text-color:"") {
   &.button-outline {
-    border-color: $color;
     background: transparent;
+    border-color: $color;
     @if $text-color == "" {
       $text-color: $color;
     }
     color: $text-color;
-    &.active,
-    &.activated {
+    &.active {
       background-color: $color;
-      box-shadow: none;
       color: #fff;
+      box-shadow: none;
     }
   }
 }
@@ -59,9 +57,10 @@
 // --------------------------------------------------
 
 @mixin bar-style($bg-color, $border-color, $color) {
-  border-color: $border-color;
   background-color: $bg-color;
+  border-color: $border-color;
   background-image: linear-gradient(0deg, $border-color, $border-color 50%, transparent 50%);
+
   color: $color;
 
   .title {
@@ -74,9 +73,9 @@
 // --------------------------------------------------
 
 @mixin tab-style($bg-color, $border-color, $color) {
-  border-color: $border-color;
   background-color: $bg-color;
   background-image: linear-gradient(0deg, $border-color, $border-color 50%, transparent 50%);
+  border-color: $border-color;
   color: $color;
 }
 
@@ -92,14 +91,14 @@
 // --------------------------------------------------
 
 @mixin item-style($bg-color, $border-color, $color) {
-  border-color: $border-color;
-  background-color: $bg-color;
   color: $color;
+  background-color: $bg-color;
+  border-color: $border-color;
 }
 
 @mixin item-active-style($active-bg-color, $active-border-color) {
-  border-color: $active-border-color;
   background-color: $active-bg-color;
+  border-color: $active-border-color;
 }
 
 
@@ -125,17 +124,14 @@
 // Checkbox Mixins
 // --------------------------------------------------
 
-@mixin checkbox-style($off-border-color, $on-bg-color, $on-border-color) {
-  & input:before,
-  & .checkbox-icon:before {
-    border-color: $off-border-color;
+@mixin checkbox-style($off-border-color, $on-bg-color) {
+  & input:before {
+    border: $checkbox-border-width solid $off-border-color;
   }
 
   // what the background looks like when its checked
-  & input:checked:before,
-  & input:checked + .checkbox-icon:before {
+  & input:checked:before {
     background: $on-bg-color;
-    border-color: $on-border-color;
   }
 }
 
@@ -150,15 +146,6 @@
     background-color: $on-bg-color;
   }
 }
-@mixin toggle-small-style($on-bg-color) {
-  // the track when the toggle is "on"
-  & input:checked + .track {
-    background-color: rgba($on-bg-color, .5);
-  }
-  & input:checked + .track .handle {
-    background-color: $on-bg-color;
-  }
-}
 
 
 // Clearfix
@@ -170,6 +157,8 @@
   &:after {
     display: table;
     content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
     line-height: 0;
   }
   &:after {
@@ -181,8 +170,8 @@
 // Placeholder text
 // --------------------------------------------------
 
-@mixin placeholder($color: $input-color-placeholder, $text-indent: 0) {
-  &::-moz-placeholder { // Firefox 19+
+@mixin placeholder($color: $input-color-placeholder) {
+  &:-moz-placeholder {
     color: $color;
   }
   &:-ms-input-placeholder {
@@ -190,8 +179,6 @@
   }
   &::-webkit-input-placeholder {
     color: $color;
-    // Safari placeholder margin issue
-    text-indent: $text-indent;
   }
 }
 
@@ -226,8 +213,8 @@
   font-family: $mono-font-family;
 }
 @mixin font-shorthand($size: $base-font-size, $weight: normal, $line-height: $base-line-height) {
-  font-weight: $weight;
   font-size: $size;
+  font-weight: $weight;
   line-height: $line-height;
 }
 @mixin font-serif($size: $base-font-size, $weight: normal, $line-height: $base-line-height) {
@@ -253,8 +240,8 @@
 
 @mixin appearance($val) {
   -webkit-appearance: $val;
-     -moz-appearance: $val;
-          appearance: $val;
+  -moz-appearance: $val;
+  appearance: $val;
 }
 
 
@@ -263,24 +250,29 @@
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
           border-radius: $radius;
 }
 
 // Single Corner Border Radius
 @mixin border-top-left-radius($radius) {
   -webkit-border-top-left-radius: $radius;
+      -moz-border-radius-topleft: $radius;
           border-top-left-radius: $radius;
 }
 @mixin border-top-right-radius($radius) {
   -webkit-border-top-right-radius: $radius;
+      -moz-border-radius-topright: $radius;
           border-top-right-radius: $radius;
 }
 @mixin border-bottom-right-radius($radius) {
   -webkit-border-bottom-right-radius: $radius;
+      -moz-border-radius-bottomright: $radius;
           border-bottom-right-radius: $radius;
 }
 @mixin border-bottom-left-radius($radius) {
   -webkit-border-bottom-left-radius: $radius;
+      -moz-border-radius-bottomleft: $radius;
           border-bottom-left-radius: $radius;
 }
 
@@ -308,6 +300,7 @@
 
 @mixin box-shadow($shadow...) {
   -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
           box-shadow: $shadow;
 }
 
@@ -317,27 +310,33 @@
 
 @mixin transition($transition...) {
   -webkit-transition: $transition;
+     -moz-transition: $transition;
           transition: $transition;
 }
 @mixin transition-delay($transition-delay) {
   -webkit-transition-delay: $transition-delay;
+     -moz-transition-delay: $transition-delay;
           transition-delay: $transition-delay;
 }
 @mixin transition-duration($transition-duration) {
   -webkit-transition-duration: $transition-duration;
+     -moz-transition-duration: $transition-duration;
           transition-duration: $transition-duration;
 }
 @mixin transition-timing-function($transition-timing) {
    -webkit-transition-timing-function: $transition-timing;
+      -moz-transition-timing-function: $transition-timing;
            transition-timing-function: $transition-timing;
  }
  @mixin transition-property($property) {
   -webkit-transition-property: $property;
+     -moz-transition-property: $property;
           transition-property: $property;
 }
 @mixin transition-transform($properties...) {
   // special case cuz of transform vendor prefixes
   -webkit-transition: -webkit-transform $properties;
+     -moz-transition: -moz-transform $properties;
           transition: transform $properties;
 }
 
@@ -347,32 +346,34 @@
 
 @mixin animation($animation) {
  -webkit-animation: $animation;
+    -moz-animation: $animation;
          animation: $animation;
 }
 @mixin animation-duration($duration) {
  -webkit-animation-duration: $duration;
+    -moz-animation-duration: $duration;
          animation-duration: $duration;
-}
-@mixin animation-direction($direction) {
- -webkit-animation-direction: $direction;
-         animation-direction: $direction;
 }
 @mixin animation-timing-function($animation-timing) {
  -webkit-animation-timing-function: $animation-timing;
+    -moz-animation-timing-function: $animation-timing;
          animation-timing-function: $animation-timing;
 }
 @mixin animation-fill-mode($fill-mode) {
  -webkit-animation-fill-mode: $fill-mode;
+    -moz-animation-fill-mode: $fill-mode;
          animation-fill-mode: $fill-mode;
 }
-@mixin animation-name($name...) {
+@mixin animation-name($name) {
  -webkit-animation-name: $name;
+    -moz-animation-name: $name;
          animation-name: $name;
 }
 @mixin animation-iteration-count($count) {
  -webkit-animation-iteration-count: $count;
+    -moz-animation-iteration-count: $count;
          animation-iteration-count: $count;
-}
+ }
 
 
 // Transformation Mixins
@@ -399,11 +400,13 @@
 }
 @mixin transform($val) {
   -webkit-transform: $val;
+     -moz-transform: $val;
           transform: $val;
 }
 
 @mixin transform-origin($left, $top) {
   -webkit-transform-origin: $left $top;
+     -moz-transform-origin: $left $top;
           transform-origin: $left $top;
 }
 
@@ -424,6 +427,7 @@
 
 @mixin background-clip($clip) {
   -webkit-background-clip: $clip;
+     -moz-background-clip: $clip;
           background-clip: $clip;
 }
 
@@ -433,6 +437,7 @@
 
 @mixin background-size($size) {
   -webkit-background-size: $size;
+     -moz-background-size: $size;
           background-size: $size;
 }
 
@@ -485,7 +490,7 @@
   display: flex;
 }
 
-@mixin display-inline-flex {
+@mixin dislay-inline-flex {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -moz-inline-flex;
@@ -603,13 +608,6 @@
   justify-content: $value;
 }
 
-@mixin flex-order($n) {
-  -webkit-order: $n;
-  -ms-flex-order: $n;
-  order: $n;
-  -webkit-box-ordinal-group: $n;
-}
-
 @mixin responsive-grid-break($selector, $max-width) {
   @media (max-width: $max-width) {
     #{$selector} {
@@ -621,12 +619,9 @@
       -ms-flex-direction: column;
       flex-direction: column;
 
-      .col, .col-10, .col-20, .col-25, .col-33, .col-34, .col-50, .col-66, .col-67, .col-75, .col-80, .col-90 {
-        @include flex(1);
-        margin-bottom: ($grid-padding-width * 3) / 2;
-        margin-left: 0;
-        max-width: 100%;
+      .col {
         width: 100%;
+        margin-bottom: ($grid-padding-width * 3) / 2;
       }
     }
   }
